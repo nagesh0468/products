@@ -4,11 +4,15 @@ import { useProductContext } from '../context/Context'
 
 
 function Products({title, price}) {
-  const {addItem, addPrice} = useProductContext();
+  const {addItem, addPrice, removeItem} = useProductContext();
 
   const addProduct = () => {
     addItem()
     addPrice(price)
+  }
+
+  const removeProduct = () => {
+    removeItem(price)
   }
   return (
    
@@ -17,7 +21,7 @@ function Products({title, price}) {
       <p>price : ${price}</p>
       <div> 
         <button onClick={addProduct} >add</button>
-        <button>remove</button>
+        <button onClick={removeProduct}  >remove</button>
       </div>
 
     </div>

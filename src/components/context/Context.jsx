@@ -19,12 +19,21 @@ function CustomContext({children}) {
       return pre + price;
     })
   }
+  let removeItem = (price) => {
+    setItem(pre => {
+      return pre - 1;
+    })
+    setValue(pre => {
+      return pre - price;
+    })
+  }
   return (
     <productContaxt.Provider value={{
       item,
       value,
       addItem,
-      addPrice
+      addPrice,
+      removeItem
     }} >
       {children}
     </productContaxt.Provider>
